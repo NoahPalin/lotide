@@ -1,5 +1,11 @@
 //this function only works if both arrays have the same length
-const eqArraysEqual = function(arr1, arr2) {
+const assertArraysEqual = function(arr1, arr2) {
+  //this if statement checks if both arrays are the same length
+  if (arr1.length !== arr2.length) {
+    console.log(`Array 1: [${arr1}]`);
+    console.log(`Array 2: [${arr2}]`);
+    return "🔴🔴🔴the arrays are NOT equal.\n";
+  }
   //for loop will loop through the entire array
   for (let i = 0; i < arr1.length; i++) {
     //checks if element i in both arrays do not equal
@@ -20,7 +26,7 @@ const eqArraysEqual = function(arr1, arr2) {
 };
 
 //test cases
-console.log(eqArraysEqual([1, 2, 3, 4, 5], [1, 2, 3, 4, 5]));
-console.log(eqArraysEqual(["a", "b", "c", "d", "e"], ["a", "b", "c", "d", "f"]));
-console.log(eqArraysEqual([0, 0, 0, 0, 0], [0.0, 0.0, 0.0, 0.0, 0.0]));
-console.log(eqArraysEqual([false, true], [true, false]));
+console.log(assertArraysEqual([1, 2, 3, 4, 5], [1, 2, 3, 4, 5]));
+console.log(assertArraysEqual(["a", "b", "c", "d", "e"], ["a", "b", "c", "d", "f"]));
+console.log(assertArraysEqual([0, 0, 0, 0, 0], [0.0, 0.0, 0.0, 0.0, 0.0]));
+console.log(assertArraysEqual([false, true], [true, false]));
