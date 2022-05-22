@@ -13,8 +13,11 @@ const assertEqual = function(actual, expected) {
   }
 };
 
-//this function only works if both arrays have the same length
 const eqArrays = function(arr1, arr2) {
+  //this if statement checks if both arrays are the same length
+  if (arr1.length !== arr2.length) {
+    return false;
+  }
   //for loop will loop through the entire array
   for (let i = 0; i < arr1.length; i++) {
     //checks if element i in both arrays do not equal
