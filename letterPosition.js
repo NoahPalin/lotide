@@ -62,7 +62,7 @@ const letterPositions = function(sentence) {
 };
 
 //test cases
-console.log(assertArraysEqual(letterPositions("hello").e, [1]));//should pass
-console.log(assertArraysEqual(letterPositions("nice to meet you!").o, [6, 14]));//should pass
-console.log(assertArraysEqual(letterPositions("lighthouse labs").l, [0, 12]));//should fail
-console.log(assertArraysEqual(letterPositions("computer").r, [8]));//should fail
+assertArraysEqual(letterPositions("hello").e, [1]);//should pass
+assertArraysEqual(letterPositions("nice to meet you!").o, [6, 14]);//should pass
+assertArraysEqual(letterPositions("lighthouse labs").l, [0, 12]);//should fail
+assertArraysEqual(letterPositions("computer").r, [8]);//should fail
