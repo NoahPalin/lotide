@@ -1,87 +1,116 @@
+/*This function compares two arrays and checks if they are identical.
+arr1: the first array you pass into the function, it will be compared to arr2.
+arr2: the second array you pass into the function.*/
 const eqArrays = function(arr1, arr2) {
-  //this if statement checks if both arrays are the same length
+
+  //This if statement checks if both arrays are the same length.
   if (arr1.length !== arr2.length) {
     return false;
   }
-  //for loop will loop through the entire array
+
+  //This for loop will loop through the entire array.
   for (let i = 0; i < arr1.length; i++) {
-    //checks if element i in both arrays do not equal
+
+    //Checks if element i in both arrays do not equal.
     if (arr1[i] !== arr2[i]) {
-      //if the if statement above was true, we return false as the arrays are not equal
+
+      //If the if statement above was true, we return false as the arrays are not equal.
       return false;
     }
   }
-  //if each element in both arrays match and no different values are found,
-  //then the arrays must be identical so we return true
+
+  /*If each element in both arrays match and no different values are found,
+  then the arrays must be identical so we return true.*/
   return true;
 };
 
+/*This function uses the function eqArrays to check if two arrays are equal
+to eachother and outputs a pass or fail message.
+arr1: an array you want to compare.
+arr2: another array you want to compare to arr1.*/
 const assertArraysEqual = function(arr1, arr2) {
-  //checks if the arrays are equal using the eqArrays function
+
+  //Checks if the arrays are equal using the eqArrays function.
   if (!eqArrays(arr1, arr2)) {
-    //prints both arrays so the user can see what arrays they compared
+
+    //Prints both arrays so that the user can see what arrays they compared.
     console.log(`Array 1: [${arr1}]`);
     console.log(`Array 2: [${arr2}]`);
-    //if the if statement above was true, we return a fail message as the arrays are not equal
+
+    //If the if statement above was true, we return a fail message as the arrays are not equal.
     return "🔴🔴🔴the arrays are NOT equal.\n";
   }
   
-  //checks if both arrays are equal using the eqArrays function
+  //Checks if both arrays are equal using the eqArrays function.
   if (eqArrays(arr1, arr2)) {
-    //prints both arrays so the user can see what arrays they compared
+
+    //Prints both arrays so the user can see what arrays they compared.
     console.log(`Array 1: [${arr1}]`);
     console.log(`Array 2: [${arr2}]`);
-    //if the above if statement was true, then return out pass messgae to the user
+
+    //If the above if statement was true, then return our pass messgae to the user.
     return "🟢🟢🟢the arrays are equal!\n";
   }
 };
 
-//this function takes in an array, finds the middle element and returns it to the user
+/*This function takes in an array, finds the middle element, and then
+returns it to the user.
+arr: any 1D array.*/
 const middle = function(arr) {
-  //this variable is used to hold the middle element(s) of the passed-in array
+
+  //This variable is used to hold the middle element(s) of the passed-in array.
   let actualMiddle = [];
-  //locateMiddle is used to hold the index(s) of the middle element(s)
+
+  //LocateMiddle is used to hold the index(s) of the middle element(s).
   let locateMiddle = [];
   locateMiddle.push(arr.length);
-  //we check if the array has 1 or 2 elements, if so, there is no middle element
+
+  //We check if the array has 1 or 2 elements, if so, there is no middle element.
   if (locateMiddle[0] === 1 || locateMiddle[0] === 2) {
     return "There is no middle to this array.";
   }
-  //if the array has 0 elements, we return an empty array
+
+  //If the array has 0 elements, we return an empty array to the user.
   if (arr.length === 0) {
     return actualMiddle;
   }
 
-  //we check if the passed-in array had an odd number of elements (if it is odd, there is only one middle element)
+  /*Checks if the passed-in array had an odd number of elements
+  (if odd, there is only one middle element).*/
   if (locateMiddle[0] % 2 !== 0) {
-    //we reassign locateMiddle to hold the index of the single middle element
+
+    //We reassign locateMiddle to hold the index of the single middle element.
     locateMiddle[0] = locateMiddle[0] / 2 + 0.5;
-  } else if (locateMiddle % 2 === 0) { //we are checking if there is an even number of elements
-    //give locateMiddle the index number of the 2 middle numbers from the passed-in array
+  } else if (locateMiddle % 2 === 0) { //Checking if there is an even number of elements.
+
+    //Give locateMiddle the index number of the two middle numbers from the passed-in array.
     locateMiddle[1] = locateMiddle[0] / 2;
     locateMiddle[2] = locateMiddle[0] / 2 + 1;
-    //removes the element that held the length of the passed-in array, as we don't need it anymore
+
+    //rRemoves the element that held the length of the passed-in array, as it is not needed anymore.
     locateMiddle.splice(0, 1);
   }
   
-  //if there is only 1 middle number
+  //If there is only 1 middle number.
   if (locateMiddle.length === 1) {
-    //we capture the single middle number using the index we stored in locateMiddle.
-    //note: we had to subtract 1 from locateMiddle because we didn't actual hold the index
-    //of the middle element, as arrays are indexed starting with 0, not 1.
+
+    /*This captures the single middle number using the index we stored in locateMiddle.
+    note: we had to subtract 1 from locateMiddle because we didn't actual hold the index
+    of the middle element since arrays are indexed starting with 0, not 1.*/
     actualMiddle[0] = arr[locateMiddle[0] - 1];
     return actualMiddle;
   }
   if (locateMiddle.length === 2) {
-    //give actualMiddle the values of both middle numbers
+
+    //Give actualMiddle the values of both middle numbers.
     actualMiddle[0] = arr[locateMiddle[0] - 1];
     actualMiddle[1] = arr[locateMiddle[1] - 1];
     return actualMiddle;
   }
 };
 
-//test cases
-console.log(assertArraysEqual(middle([1, 2, 3, 4, 5]), [3]));
-console.log(assertArraysEqual(middle(["hi", true, 99, 'm', 4.3, -5.8]), [99, 'm']));
-console.log(assertArraysEqual(middle([]), []));
-console.log(assertArraysEqual(middle([1, 2, 3]), [2]));
+//Test cases.s
+console.log(assertArraysEqual(middle([1, 2, 3, 4, 5]), [3])); //Should pass.
+console.log(assertArraysEqual(middle(["hi", true, 99, 'm', 4.3, -5.8]), [true, 99])); //Should fail.
+console.log(assertArraysEqual(middle([]), [])); //Should pass.
+console.log(assertArraysEqual(middle([1, 2, 3]), [2])); //Should pass.

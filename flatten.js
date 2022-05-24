@@ -1,69 +1,96 @@
+/*This function compares two arrays and checks if they are identical.
+arr1: the first array you pass into the function, it will be compared to arr2.
+arr2: the second array you pass into the function.*/
 const eqArrays = function(arr1, arr2) {
-  //this if statement checks if both arrays are the same length
+
+  //This if statement checks if both arrays are the same length.
   if (arr1.length !== arr2.length) {
     return false;
   }
-  //for loop will loop through the entire array
+
+  //This for loop will loop through the entire array.
   for (let i = 0; i < arr1.length; i++) {
-    //checks if element i in both arrays do not equal
+
+    //Checks if element i in both arrays do not equal.
     if (arr1[i] !== arr2[i]) {
-      //if the if statement above was true, we return false as the arrays are not equal
+
+      //If the if statement above was true, we return false as the arrays are not equal.
       return false;
     }
   }
-  //if each element in both arrays match and no different values are found,
-  //then the arrays must be identical so we return true
+
+  /*If each element in both arrays match and no different values are found,
+  then the arrays must be identical so we return true.*/
   return true;
 };
 
+/*This function uses the function eqArrays to check if two arrays are equal
+to eachother and outputs a pass or fail message.
+arr1: an array you want to compare.
+arr2: another array you want to compare to arr1.*/
 const assertArraysEqual = function(arr1, arr2) {
-  //checks if the arrays are equal using the eqArrays function
+
+  //Checks if the arrays are equal using the eqArrays function.
   if (!eqArrays(arr1, arr2)) {
-    //prints both arrays so the user can see what arrays they compared
+
+    //Prints both arrays so that the user can see what arrays they compared.
     console.log(`Array 1: [${arr1}]`);
     console.log(`Array 2: [${arr2}]`);
-    //if the if statement above was true, we return a fail message as the arrays are not equal
+
+    //If the if statement above was true, we return a fail message as the arrays are not equal.
     return "🔴🔴🔴the arrays are NOT equal.\n";
   }
   
-  //checks if both arrays are equal using the eqArrays function
+  //Checks if both arrays are equal using the eqArrays function.
   if (eqArrays(arr1, arr2)) {
-    //prints both arrays so the user can see what arrays they compared
+
+    //Prints both arrays so the user can see what arrays they compared.
     console.log(`Array 1: [${arr1}]`);
     console.log(`Array 2: [${arr2}]`);
-    //if the above if statement was true, then return out pass messgae to the user
+
+    //If the above if statement was true, then return our pass messgae to the user.
     return "🟢🟢🟢the arrays are equal!\n";
   }
 };
 
-//this function will turn a 2D array into a 1D array
+/*This function will turn a 2D array into a 1D array.
+arr: any 1D or 2D array.*/
 const flatten = function(arr) {
-  //initialize an empty array to hold the flatten array
+
+  //Initialize an empty array to hold the flattened array.
   let runningArr = [];
-  //loops through the whole array passed into this function
+
+  //Loops through the whole array passed into the function.
   for (let i = 0; i < arr.length; i++) {
-    //an if statement to check if an element is an array (checks for nested arrays)
+
+    //An if statement to check if an element is an array (checks for 2D arrays).
     if (Array.isArray(arr[i]) === true) {
-      //loops through the whole nested array
+
+      //Loops through the whole 2D array.
       for (let j = 0; j < arr[i].length; j++) {
-        //adds each element of the nested array to our running array
+
+        //Adds each element of the 2D array to runningArr (the reuslt).
         runningArr.push(arr[i][j]);
       }
     }
-    //if statement to check if an element isn't a nested array
+
+    //An if statement to check if an element isn't a nested array.
     if (Array.isArray(arr[i]) === false) {
-      //adds this element to our running array
+
+      //Adds this element to runningArr.
       runningArr.push(arr[i]);
     }
   }
+
+  //Returns the final result.
   return runningArr;
 };
 
 
 
-//test cases
-console.log(assertArraysEqual(flatten([1, [2, 3, 4], 5, [6, 7, 8], 9]), [1, 2, 3, 4, 5, 6, 7, 8, 9]));
-console.log(assertArraysEqual(flatten(["how", ["are", "you", "doing"], "this", 'morning?']), ["how", "are", "you", "doing", "this", "morning?"]));
-console.log(assertArraysEqual(flatten([-4, -3, [-2, -1], 0]), [-4, -3, -2, -1, 0]));
+//Test cases.
+console.log(assertArraysEqual(flatten([1, [2, 3, 4], 5, [6, 7, 8], 9]), [1, 2, 3, 4, 5, 6, 7, 8, 9])); //Should pass.
+console.log(assertArraysEqual(flatten(["how", ["are", "you", "doing"], "this", 'morning?']), ["how", "are", "you", "doing", "this", "morning?"])); //Should pass.
+console.log(assertArraysEqual(flatten([-4, -3, [-2, -1], 0]), [-4, -3, 2, -1, 0])); //Should fail.
 
 

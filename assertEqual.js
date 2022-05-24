@@ -1,20 +1,28 @@
+/* This function compares two primitive pieces of data, then tells the user
+if they are equal or not with a pass/fail message.
+actual: the data you want to compare to another piece of data.
+expected: what you expect actual to be equal to. */
 const assertEqual = function(actual, expected) {
-  //the message the assertion will output if it finds an error
+
+  //The message the assertion will output if it finds an error.
   let errorMessage = `${actual} !== ${expected}`;
-  //the following if statement adds the red circles if actual and expected don't match
+
+  //The following if statement adds the red circles if actual and expected don't match.
   if (actual !== expected) {
+
+    //The red circles are logged without going to a new line.
     process.stdout.write("🔴🔴🔴");
   }
   console.assert(actual === expected, errorMessage);
 
-  //if the assertion passes, this if statement prints a message telling the user it passed
+  //If the assertion passes, this if statement prints a message telling the user it passed.
   if (actual === expected) {
     console.log(`🟢🟢🟢Assertion Passed: ${actual} === ${expected}`);
   }
 };
 
-//the following 4 lines of code are just for testing purposes.
-assertEqual("Lighthouse Labs", "Bootcamp");
-assertEqual(1, 1);
-assertEqual(4, 5);
-assertEqual(2.0, 2);
+//The following four lines of code are just for testing purposes.
+assertEqual("Lighthouse Labs", "Bootcamp"); //Should fail.
+assertEqual(1, 1); //Should pass.
+assertEqual(4, 5); //Should fail.
+assertEqual(2.0, 2); //Should pass.
