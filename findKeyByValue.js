@@ -39,7 +39,7 @@ const findKeyByValue = function(obj, target) {
     }
   }
 
-  //Eeturns undefined if no value was found that matches the target.
+  //Returns undefined if no value was found that matches the target.
   return undefined;
 };
 
