@@ -1,10 +1,10 @@
 {
   "name": "@noahpalin/lotide",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A mini clone of the [Lodash](https://lodash.com) library.",
   "main": "assertEqual.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/NoahPalin/lotide/issues"
   },
-  "homepage": "https://github.com/NoahPalin/lotide#readme"
+  "homepage": "https://github.com/NoahPalin/lotide#readme",
+  "devDependencies": {
+    "chai": "^4.3.6",
+    "mocha": "^10.0.0"
+  }
 }

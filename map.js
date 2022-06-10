@@ -82,7 +82,7 @@ console.log(assertArraysEqual(map(words2, word => word[0]), ['h', 'a', 'g', 'd']
 const words3 = ["May", "26th", "2022"];
 console.log(assertArraysEqual(map(words3, word => word[0]), ['M', '2', '0'])); //Should fail.
 
-const words4 = ["Mars", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"];
+const words4 = ["Mars", "Venus", "Earth", "Mercury", "Jupiter", "Saturn", "Uranus", "Neptune"];
 console.log(assertArraysEqual(map(words4, word => word[0]), ['M', 'V', 'E', 'M', 'J', 'S', 'U', 'N', 'P'])); //Should fail.
 
 
