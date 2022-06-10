@@ -32,7 +32,7 @@ const findKeyByValue = function(obj, target) {
   for (let key in obj) {
 
     //Checks if a key's value matches the target.
-    if (bestTVShowsByGenre[key] === target) {
+    if (obj[key] === target) {
 
       //Returns the key that corresponds to the target value.
       return key;
