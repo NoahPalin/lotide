@@ -1,4 +1,4 @@
-/*This function takes in an array, finds the middle element, and then
+/*This function takes in an array of numbers, finds the middle element, and then
 returns it to the user.
 arr: any 1D array.*/
 const middle = function(arr) {
