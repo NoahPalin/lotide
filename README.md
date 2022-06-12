@@ -32,6 +32,7 @@ The following functions are currently implemented:
 * [`countLetters(str)`](https://github.com/NoahPalin/lotide/blob/master/countLetters.js): Counts how many of each letter there are in a string, then returns that answer in an object.
 * [`countOnly(allItems, itemsToCount)`](https://github.com/NoahPalin/lotide/blob/master/countOnly.js): Takes in an array of strings and counts how many of a specified string is in the array.
 * [`eqArrays(arr1, arr2)`](https://github.com/NoahPalin/lotide/blob/master/eqArrays.js): Checks if two arrays are equal to eachother and returns true if they are, and false if they are not.
+* [`eqObjects(object1, object2)`](https://github.com/NoahPalin/lotide/blob/master/eqObjects.js): Checks if two objects have identical keys with matching identical values.
 * [`findKey(obj, callback)`](https://github.com/NoahPalin/lotide/blob/master/findKey.js): Loops through an object and returns the first key whoes vallue passes the callback function.
 * [`findKeyByValue(obj, target)`](https://github.com/NoahPalin/lotide/blob/master/findKeyByValue.js): Loops through an object are returns the first key that matches the target value.
 * [`flatten(arr)`](https://github.com/NoahPalin/lotide/blob/master/flatten.js): Takes in a 2D array and converts it to a 1D array.
